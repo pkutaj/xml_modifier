@@ -1,17 +1,18 @@
 # XML MODIFIER
 
 ## PURPOSE
-The aim of this code is to modify an xml file in order to populate required fields with current month. 
+The aim of this code is to modify an xml file in order to populate required fields with current month. Sample xml provided, [KB](ps_xml_modifier.md) as well.
 
 
 ## TOC
+
 STEP | ACTION
 -----|---------------------------------------------------
-1.   | Declare Path
-2.   | Load the data into an XML-Object
-3.   | Bind the nodes
-4.   | Modify the nodes with the right selection of .Node
-5.   | Save the file
+1    | Declare Path
+2    | Load the data into an XML-Object
+3    | Bind the nodes
+4    | Modify the nodes with the right selection of .Node
+5    | Save the file
 
 
 ## SIGNATURE 
