@@ -5,7 +5,7 @@ The aim of this code is to modify an xml file in order to populate required fiel
 
 
 ## TOC
-* [sample xml data][sample.xml]
+* [sample xml data](sample.xml)
 * [xml manipulation kb](ps_xml_modifier.md) as well.
 
 STEP | ACTION
@@ -13,7 +13,7 @@ STEP | ACTION
 1    | Declare Path
 2    | Load the data into an XML-Object
 3    | Bind the nodes
-4.   | Use -replace to modify the nodes with regular expression
+4    | Use -replace to modify the nodes with regular expression
 5    | Save the file
 
 
