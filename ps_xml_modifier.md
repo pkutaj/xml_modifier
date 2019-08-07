@@ -10,6 +10,7 @@ the puzzle is, how to manipulate an xml file with the help of a powershell scrip
 * [XML Formatting, XQuery, and XPath Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=DotJoshJohnson.xml)
 * [regex is -replace's best friend](https://powershell.org/2013/08/regular-expressions-are-a-replaces-best-friend/)
 * [-match in powershell regex](https://powershellexplained.com/2017-07-31-Powershell-regex-regular-expression/#-match)
+* [concatenating in powershell](https://ss64.com/ps/syntax-concat.html)
 
 
 ## terminology
