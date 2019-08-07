@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Configuration Version="2.5.5.000">
   <Compilations>
-    <Compilation Identifier="6272ACFC-8923-43F7-9B4D-BE95E6659D94" Create="True">
+    <Compilation>
       <MailSettings>
         <MailHeader>08.2019 | JANUS Report – Management overview Bangladesh Brunei</MailHeader>
       </MailSettings>
