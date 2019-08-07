@@ -6,7 +6,7 @@ The aim of this code is to modify an xml file in order to populate required fiel
 
 ## TOC
 * [sample xml data](sample.xml)
-* [xml manipulation kb](ps_xml_modifier.md) as well.
+* [xml manipulation kb](ps_xml_modifier.md)
 
 STEP | ACTION
 -----|---------------------------------------------------------
