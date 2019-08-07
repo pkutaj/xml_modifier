@@ -9,6 +9,7 @@ the puzzle is, how to manipulate an xml file with the help of a powershell scrip
 * [Mastering everyday XML tasks in PowerShell](https://www.powershellmagazine.com/2013/08/19/mastering-everyday-xml-tasks-in-powershell/)
 * [XML Formatting, XQuery, and XPath Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=DotJoshJohnson.xml)
 * [regex is -replace's best friend](https://powershell.org/2013/08/regular-expressions-are-a-replaces-best-friend/)
+* [-match in powershell regex](https://powershellexplained.com/2017-07-31-Powershell-regex-regular-expression/#-match)
 
 
 ## terminology
@@ -66,12 +67,32 @@ $xml.Save($path)
 
 ```powershell
 # CREATE A BINDING IN THE FORMAT MM.YYYY
-$reportTimeStamp = Get-Date -UFormat "%m.%Y"
+$TimeStamp = Get-Date -UFormat "%m.%Y"
 # SELECT ITEM WITH X-PATH
 $item = Select-XML -XML $xml -Xpath '//XPATH'
 # SELECT THE NODE IN QUESTION AND ENHANCE IT: IT ALREADY CONTAINS THE TIMESTAMP! 
-$item.fooNode.barSubNode = $item.fooNode.barSubNode -replace "\d{2}.d{4}", $reportTimeStamp
+$item.fooNode.barSubNode = $item.fooNode.barSubNode -replace "\d{2}.\d{4}", $TimeStamp
 # OVERWRITING THE EXISTING FILE 
 $xml.Save($path)
 
+```
+###  2019-08-07 13:37:06 what if the init does not have a timestamp included
+* there can be a situation when the test if the string to be added is initially present
+* enter `-match` 
+
+```powershell
+# CREATE A BINDING IN THE FORMAT MM.YYYY
+$TimeStamp = Get-Date -UFormat "%m.%Y"
+# SELECT ITEM WITH X-PATH
+$item = Select-XML -XML $xml -Xpath '//XPATH'
+# CHECK IF THE SUBSTRING IS ALREADY PRESENT
+if($item.fooNode.barSubNode -match "\d{2}.\d{4}") {
+    # SELECT THE NODE IN QUESTION AND ENHANCE IT: IT ALREADY CONTAINS THE TIMESTAMP! 
+    $item.fooNode.barSubNode = $item.fooNode.barSubNode -replace "\d{2}.\d{4}", $TimeStamp
+} else {
+    # APPEND VIA CONCATENATION IF THE TIMESTAMP (SUBSTRING) DOES NOT EXIST AT ALL 
+    $item.fooNode.barSubNode += '_' + $TimeStamp
+    } 
+# OVERWRITING THE EXISTING FILE 
+$xml.Save($path)
 ```

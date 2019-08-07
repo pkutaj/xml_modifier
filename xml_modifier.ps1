@@ -25,9 +25,14 @@ $xmlObject.Load($configFile)
 # 3.   | Bind the nodes
 $mailHeader = Select-XML -XML $xmlObject -Xpath '/Configuration/Compilations/Compilation/MailSettings/MailHeader'
 $reportTimeStamp = Get-Date -UFormat "%m.%Y"
+$regexPattern = "\d{2}.\d{4}"
 
 # 4.   | Use -replace to modify the nodes with regular expression
-$mailHeader.Node.InnerText = $mailHeader.Node.InnerText -replace "\d{2}.\d{4}", $reportTimeStamp
+Write-Host $mailHeader.Node.InnerText
+if ($mailHeader -match $regexPattern) {
+    $mailHeader.Node.InnerText = $mailHeader.Node.InnerText -replace $regexPattern, $reportTimeStamp
+}
+else { $mailHeader.Node.InnerText = $reportTimeStamp + " | " + $mailHeader.Node.InnerText }
 Write-Host $mailHeader.Node.InnerText
 # 5.   | Save the file
 $xmlObject.Save($configFile)
